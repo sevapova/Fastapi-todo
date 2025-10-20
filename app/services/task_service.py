@@ -37,3 +37,7 @@ def delete_task(session: Session, user: User, task_id: int):
     
     session.delete(task)
     session.commit()
+
+def get_tasks(session: Session, user: User):
+    return session.query(Task).filter(Task.user_id==user.id).all()
+    
